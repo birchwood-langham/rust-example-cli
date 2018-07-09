@@ -1,9 +1,22 @@
 use config::{Config, ConfigError, File};
 
 #[derive(Debug, Deserialize)]
+pub struct Database {
+    pub url: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Service {
+    pub host: String,
+    pub port: u16,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct Settings {
-    name: String,
-    password: String,
+    pub name: String,
+    pub password: String,
+    pub database: Database,
+    pub service: Service,
 }
 
 impl Settings {

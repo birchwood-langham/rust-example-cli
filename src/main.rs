@@ -14,7 +14,9 @@ use settings::Settings;
 
 fn main() {
     let opts = Opts::from_args();
-    let app_settings = Settings::new(opts.config_file_path);
+    let app_settings = Settings::new(opts.config_file_path).unwrap();
 
     println!("{:?}", app_settings);
+
+    println!("Database URL: {}", app_settings.database.url)
 }
